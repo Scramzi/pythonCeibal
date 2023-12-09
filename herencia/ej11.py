@@ -26,7 +26,14 @@ class Moto(MedioDeTransporte):
 
 class Colectivo(MedioDeTransporte):
     def __init__(self, pasajeros):
-        self.pasajeros = pasajeros
+        super().__init__(combustible=0)
+        self.pasajeros = pasajeros  
+    
+    def cargar_combustible(self, litros):
+        super().cargar_combustible(litros)
+        self.combustible += 100
+        self.pasajeros = 0
+      
 
     def entran_personas(self, cantidad):
         return cantidad <= 0
